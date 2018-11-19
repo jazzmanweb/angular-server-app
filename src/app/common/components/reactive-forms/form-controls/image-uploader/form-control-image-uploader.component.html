@@ -1,0 +1,134 @@
+<div
+	class="my-drop-zone"
+	ng2FileDrop
+	[ngClass]="{ 'nv-file-over': hasBaseDropZoneOver }"
+	[uploader]="uploader"
+	(fileOver)="fileOverBase($event)"
+>
+	<mat-card>
+		<div>
+			<p>Queue length: {{ uploader?.queue?.length }}</p>
+		</div>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Size</th>
+					<th>Progress</th>
+					<th>Status</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let item of uploader.queue">
+					<td>
+						<strong>{{ item?.file?.name }}</strong>
+					</td>
+					<td>
+						<span *ngIf="uploader.isHTML5">
+							{{
+								item?.file?.size / 1024 / 1024 | number: '.2'
+							}}
+							MB
+						</span>
+						<mat-progress-bar
+							*ngIf="uploader.isHTML5"
+							mode="determinate"
+							value="{{item.progress}}"
+						></mat-progress-bar>
+					</td>
+					<td class="text-center">
+						<mat-icon *ngIf="item.isSuccess" color="prime">
+							confirm
+						</mat-icon>
+						<mat-icon *ngIf="item.isCancel" color="warn">
+							cancel
+						</mat-icon>
+						<mat-icon *ngIf="item.isError" color="warn">
+							error
+						</mat-icon>
+					</td>
+					<td nowrap>
+						<button
+							type="button"
+							mat-icon-button
+							color="primary"
+							[disabled]="
+								item.isReady ||
+								item.isUploading ||
+								item.isSuccess
+							"
+							(click)="handleUpload(item)"
+						>
+							<mat-icon>photo</mat-icon>
+						</button>
+						<button
+							type="button"
+							mat-icon-button
+							color="warn"
+							[disabled]="!item.isUploading"
+							(click)="handleCancel(item)"
+						>
+							<mat-icon>cancel</mat-icon>
+						</button>
+						<button
+							type="button"
+							mat-icon-button
+							color="warn"
+							(click)="handleRemove(item)"
+						>
+							<mat-icon>clear</mat-icon>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div>
+			Queue progress:
+			<div class="progress">
+				<mat-progress-bar
+					mode="determinate"
+					value="{{uploader.progress}}"
+				></mat-progress-bar>
+			</div>
+		</div>
+
+		<div>
+			<button
+				type="button"
+				mat-raised-button
+				color="primary"
+				class="btn btn-success btn-s"
+				[disabled]="!uploader.getNotUploadedItems().length"
+				(click)="handleUploadAll()"
+			>
+				<mat-icon>photo_library</mat-icon>
+				<span>Upload all</span>
+			</button>
+			<button
+				type="button"
+				mat-raised-button
+				color="warn"
+				class="btn btn-warning btn-s"
+				[disabled]="!uploader.isUploading"
+				(click)="handleCancelAll()"
+			>
+				<mat-icon>cancel</mat-icon>
+				<span>Cancel all</span>
+			</button>
+			<button
+				type="button"
+				mat-raised-button
+				color="warn"
+				class="btn btn-danger btn-s"
+				[disabled]="!uploader.queue.length"
+				(click)="handleClearQueue()"
+			>
+				<mat-icon>clear</mat-icon>
+				<span>Clear</span>
+			</button>
+		</div>
+	</mat-card>
+</div>

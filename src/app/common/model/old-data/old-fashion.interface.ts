@@ -1,0 +1,32 @@
+export interface OldFashionInterface {
+	id?: number;
+    name?: string;
+    type?: number;
+    category?: string;
+    showall?: number;
+    colors?: string;
+    colorhex?: string;
+    height?: number;
+    width?: number;
+    length?: number;
+    thickness?: number;
+    sizetypes?: string;
+    sizeslist?: string;
+    size?: string;
+    growth?: string;
+    age?: string;
+    gender?: number;
+    fabric?: string;
+    fulfillment?: string;
+    description?: string;
+    price?: number;
+    quantity?: number;
+    availability?: number;
+    availabilityinfo?: string;
+    novelty?: number;
+    sale?: number;
+    promotion?: number;
+    thumb?: string;
+    images?: string;
+    published?: number;
+}

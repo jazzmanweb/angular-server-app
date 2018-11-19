@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="77a6ec01572247d4ed9635e95502bf11de617679" datatype="html">
+        <source>Choose item:</source>
+        <target>Choose item:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c65849b8c9a23ddb833efcc3ef5123a457497956" datatype="html">
+        <source>PRODUCTS</source>
+        <target>Products</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a2b6f956428090895209f488d9e5ebb02b58ad6b" datatype="html">
+        <source>FASHIONS</source>
+        <target>Fashions</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c50dcf74927601e9b865236617607d82425c359e" datatype="html">
+        <source>CATEGORIES</source>
+        <target>Categories</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7a8ffcca32527e6fc937a25ac914e98c14d7bbee" datatype="html">
+        <source>CAMPAIGNS</source>
+        <target>Campaigns</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6e96b731ce21fe464f493f9f3db0d027ec866b77" datatype="html">
+        <source>SHIPPING</source>
+        <target>Shipping</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bf4cd7c5314251622dcc3c7fa9ffc960b9eff7d4" datatype="html">
+        <source>SIZES</source>
+        <target>Sizes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

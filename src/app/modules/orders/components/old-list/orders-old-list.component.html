@@ -1,0 +1,18 @@
+<ng-container *ngFor="let item of (list$ | async)">
+	<mat-expansion-panel>
+		<mat-expansion-panel-header>
+			<mat-panel-title>
+				{{item.name}}
+			</mat-panel-title>
+			<mat-panel-description>
+				{{item.orderDate}}
+			</mat-panel-description>
+		</mat-expansion-panel-header>
+
+		<app-mat-table [list]="item?.items"
+		               [displayedColumns]="displayedColumns"></app-mat-table>
+
+	</mat-expansion-panel>
+
+</ng-container>
+<pre>{{list$ | async | json}}</pre>

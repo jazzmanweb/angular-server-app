@@ -1,0 +1,1 @@
+export const SIZES_FEATURE_SELECTOR: string = 'sizes';

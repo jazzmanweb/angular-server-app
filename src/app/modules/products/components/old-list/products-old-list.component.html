@@ -1,0 +1,18 @@
+<div class="columns">
+	<div>
+		<app-mat-table
+			[list]="list$ | async"
+			[displayedColumns]="displayedColumns"
+		></app-mat-table>
+	</div>
+	<div>
+		<app-mat-table
+			[list]="listAsNew$ | async"
+			[displayedColumns]="displayedNewColumns"
+			(onCopy)="handleCopyItem($event)"
+			(onRemove)="handleRemoveItem($event)"
+		></app-mat-table>
+
+		<pre>{{ list$ | async | json }}</pre>
+	</div>
+</div>

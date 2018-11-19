@@ -1,0 +1,65 @@
+<mat-sidenav-container class="sidenav-container">
+	<mat-sidenav
+		#drawer
+		class="sidenav"
+		fixedInViewport="true"
+		[attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+		[mode]="(isHandset$ | async) ? 'over' : 'side'"
+		[opened]="!(isHandset$ | async)"
+	>
+		<mat-toolbar i18n>Choose item:</mat-toolbar>
+		<mat-nav-list>
+			<ng-container *ngFor="let item of menu">
+				<a
+					mat-list-item
+					[routerLink]="'/' + item.url"
+					routerLinkActive="router-link-active"
+					i18n
+				>
+					<mat-icon>{{ item.icon }}</mat-icon>
+					{{ item.label }}
+				</a>
+			</ng-container>
+		</mat-nav-list>
+	</mat-sidenav>
+	<mat-sidenav-content>
+		<mat-toolbar color="accent">
+			<button mat-button (click)="handleList()">
+				<mat-icon>list</mat-icon>
+				<span>LIST</span>
+			</button>
+			<button mat-button (click)="handleOldList()">
+				<mat-icon>archive</mat-icon>
+				<span>OLD LIST</span>
+			</button>
+			<button mat-button (click)="handleCreate()">
+				<mat-icon>add</mat-icon>
+				<span>CREATE</span>
+			</button>
+		</mat-toolbar>
+
+		<mat-toolbar color="primary">
+			<button
+				type="button"
+				aria-label="Toggle sidenav"
+				mat-icon-button
+				(click)="drawer.toggle()"
+				*ngIf="(isHandset$ | async)"
+			>
+				<mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+			</button>
+			<span>{{ pageTitle$ | async }} / {{ viewType$ | async }}</span>
+
+			<button
+				mat-button
+				color="accent"
+				*ngIf="(viewType$ | async) === 'details'"
+				(click)="handleEdit()"
+			>
+				<mat-icon>edit</mat-icon>
+				<span>EDIT</span>
+			</button>
+		</mat-toolbar>
+		<mat-card> <ng-content></ng-content> </mat-card>
+	</mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,18 @@
+<div [formGroup]="form">
+	<mat-form-field class="form-control__field">
+		<mat-select
+			[compareFn]="compareFn"
+			[placeholder]="control.placeholder"
+			[formControlName]="control.formControlName"
+		>
+			<mat-option *ngFor="let option of control.options" [value]="option">
+				{{ option.name || option }}
+			</mat-option>
+		</mat-select>
+		<mat-error>
+			<span *ngIf="isInvalid(control.formControlName)">
+				{{ control.error }}
+			</span>
+		</mat-error>
+	</mat-form-field>
+</div>

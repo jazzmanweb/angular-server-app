@@ -1,0 +1,34 @@
+<div [formGroup]="form" class="form-controls__container">
+	<div *ngFor="let control of controlsArray(controls)"
+		class="form-control__item"
+		[ngClass]="control.styleClass"
+	>
+		<ng-container
+			*ngIf="control.controlType === controlTypeEnum.FormControl"
+		>
+			<app-form-control
+				[control]="control"
+				[form]="form"
+				[formPath]="formPath"
+			></app-form-control>
+		</ng-container>
+
+		<ng-container *ngIf="control.controlType === controlTypeEnum.FormArray">
+			<app-form-array
+				[control]="control"
+				[form]="form"
+				[formPath]="formPath"
+			></app-form-array>
+		</ng-container>
+
+		<ng-container *ngIf="control.controlType === controlTypeEnum.FormGroup">
+			<div>
+				<app-dynamic-form-node
+					[form]="control"
+					[controls]="control.formGroup"
+					[formPath]="getFormNode(control.formControlName)"
+				></app-dynamic-form-node>
+			</div>
+		</ng-container>
+	</div>
+</div>

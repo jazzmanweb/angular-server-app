@@ -1,0 +1,40 @@
+<ng-container [ngSwitch]="control?.formControlType">
+	<form-control-checkbox
+		*ngSwitchCase="formControlTypeEnum.CHECKBOX"
+		[form]="form"
+		[control]="control"
+	></form-control-checkbox>
+
+	<form-control-select
+		*ngSwitchCase="formControlTypeEnum.SELECT"
+		[form]="form"
+		[control]="control"
+	></form-control-select>
+
+	<form-control-multiselect
+		*ngSwitchCase="formControlTypeEnum.MULTISELECT"
+		[form]="form"
+		[control]="control"
+	></form-control-multiselect>
+
+	<form-control-textarea
+		*ngSwitchCase="formControlTypeEnum.TEXTAREA"
+		[form]="form"
+		[control]="control"
+	></form-control-textarea>
+
+	<ng-container *ngSwitchCase="formControlTypeEnum.IMAGE">
+		<div [formGroup]="form">
+			<form-control-image-uploader
+				[formControlName]="control?.formControlName"
+				[customization]="control?.customization"
+			></form-control-image-uploader>
+		</div>
+	</ng-container>
+
+	<form-control-input
+		*ngSwitchDefault
+		[form]="form"
+		[control]="control"
+	></form-control-input>
+</ng-container>

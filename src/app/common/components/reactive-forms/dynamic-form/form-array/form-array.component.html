@@ -1,0 +1,43 @@
+<div [formGroup]="form">
+	<div
+		*ngIf="controlFormArray(control.formControlName).length"
+		[formArrayName]="control.formControlName"
+		class="form--array"
+	>
+		<div
+			*ngFor="
+				let item of controlFormArray(control.formControlName);
+				let idx = index
+			"
+			class="form--array-item"
+		>
+			<mat-form-field>
+				<input
+					matInput
+					[type]="control.inputType || inputTypeEnum.text"
+					[formControlName]="idx"
+					[placeholder]="control.formControlName + ' #' + (idx + 1)"
+				/>
+				<span matPrefix *ngIf="control.prefix">
+					{{ control.prefix }}
+				</span>
+				<span matSuffix *ngIf="control.suffix">
+					{{ control.suffix }}
+				</span>
+				<mat-error>
+					<span *ngIf="isInvalid(control.formControlName)">
+						{{ control.error }}
+					</span>
+				</mat-error>
+			</mat-form-field>
+		</div>
+	</div>
+</div>
+<button
+	mat-raised-button
+	type="button"
+	(click)="handleAdd(control.formControlName)"
+>
+	<mat-icon>add</mat-icon>
+	Add Item {{ control.formControlName }}
+</button>

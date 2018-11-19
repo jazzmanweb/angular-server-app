@@ -1,0 +1,7 @@
+<app-mat-table
+	[list]="list$ | async"
+	[displayedColumns]="displayedColumns"
+	(onCopy)="handleCopyItem($event)"
+	(onRemove)="handleRemoveItem($event)"
+	(onToggle)="handleToggleItem($event)"
+></app-mat-table>

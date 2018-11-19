@@ -1,0 +1,17 @@
+<div [formGroup]="form">
+	<mat-form-field class="form-control__field">
+		<input
+			matInput
+			[type]="control.inputType || inputTypeEnum.text"
+			[formControlName]="control.formControlName"
+			[placeholder]="control.placeholder"
+		/>
+		<span matPrefix *ngIf="control.prefix">{{ control.prefix }}</span>
+		<span matSuffix *ngIf="control.suffix">{{ control.suffix }}</span>
+		<mat-error>
+			<span *ngIf="isInvalid(control.formControlName)">
+				{{ control.error }}
+			</span>
+		</mat-error>
+	</mat-form-field>
+</div>

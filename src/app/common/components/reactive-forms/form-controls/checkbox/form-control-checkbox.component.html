@@ -1,0 +1,12 @@
+<div [formGroup]="form">
+	<div class="form-control__field">
+		<mat-checkbox [formControlName]="control.formControlName">
+			{{ control.placeholder }}
+		</mat-checkbox>
+		<mat-error>
+			<span *ngIf="isInvalid(control.formControlName)">
+				{{ control.error }}
+			</span>
+		</mat-error>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+{
+	"extends": "../tslint.json",
+	"rules": {
+		"directive-selector": [true, "attribute", "app", "camelCase"],
+		"component-selector": [true, "element", "", "kebab-case"],
+		"ordered-imports": [
+			true,
+			{
+				"import-sources-order": "lowercase-last",
+				"named-imports-order": "lowercase-first"
+			}
+		]
+	}
+}

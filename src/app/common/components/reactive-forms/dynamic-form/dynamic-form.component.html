@@ -1,0 +1,71 @@
+<form [formGroup]="form" (ngSubmit)="onFormSubmit(form.value)">
+	<mat-card-header>FORM</mat-card-header>
+	<mat-divider></mat-divider>
+
+	<mat-card-content>
+		<app-dynamic-form-node
+			[controls]="controls"
+			[form]="form"
+			[formPath]="[]"
+		></app-dynamic-form-node>
+	</mat-card-content>
+
+	<mat-divider></mat-divider>
+	<mat-card-actions>
+		<button
+			*ngIf="!form.pristine && !loader"
+			mat-raised-button
+			type="submit"
+			color="primary"
+		>
+			<mat-icon>save</mat-icon>
+			Save
+		</button>
+		<button
+			*ngIf="!form.pristine && loader"
+			mat-raised-button
+			type="submit"
+			color="warn"
+		>
+			<mat-icon>autorenew</mat-icon>
+			Saving
+		</button>
+		<button
+			*ngIf="form.pristine"
+			mat-raised-button
+			type="submit"
+			color="accent"
+		>
+			<mat-icon>autorenew</mat-icon>
+			Save
+		</button>
+
+		<button
+			mat-raised-button
+			type="button"
+			color="link"
+			(click)="handleDetails()"
+		>
+			<ng-container *ngIf="form.dirty">
+				<mat-icon>cancel</mat-icon>
+				CANCEL
+			</ng-container>
+			<ng-container *ngIf="!form.dirty">
+				<mat-icon>slideshow</mat-icon>
+				RETURN TO DETAILS
+			</ng-container>
+		</button>
+
+		<button
+			mat-raised-button
+			type="button"
+			color="link"
+			(click)="handleList(form)"
+		>
+			<ng-container *ngIf="!form.dirty">
+				<mat-icon>list</mat-icon>
+				RETURN TO LIST
+			</ng-container>
+		</button>
+	</mat-card-actions>
+</form>

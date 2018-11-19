@@ -1,0 +1,12 @@
+<div style="text-align:center">
+	<img width="50" [alt]="webName" [src]="logoUrl">
+	<h1>
+		{{webName}}
+	</h1>
+</div>
+
+<app-navbar>
+	<div [@routeAnimation]="getAnimationData(routerOutlet)">
+		<router-outlet #routerOutlet="outlet"></router-outlet>
+	</div>
+</app-navbar>

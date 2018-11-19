@@ -1,0 +1,14 @@
+<div [formGroup]="form">
+	<mat-form-field class="form-control__field">
+		<textarea
+			matInput
+			[formControlName]="control.formControlName"
+			[placeholder]="control.placeholder"
+		></textarea>
+		<mat-error>
+			<span *ngIf="isInvalid(control.formControlName)">
+				{{ control.error }}
+			</span>
+		</mat-error>
+	</mat-form-field>
+</div>
